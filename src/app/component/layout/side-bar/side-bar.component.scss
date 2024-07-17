@@ -1,17 +1,49 @@
-.example-container {
-    width: 500px;
-    height: 300px;
-    border: 1px solid rgba(0, 0, 0, 0.5);
-  }
-  
-  .example-sidenav-content {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .example-sidenav {
-    padding: 20px;
-  }
-  
+.main {
+  background-color: #894fad; /* Match the top bar color */
+  padding: 10px;
+  margin-top: 0px;
+}
+
+.main > li {
+  background-color: #8e24aa; /* Lighter purple for menu items */
+  border-radius: 5px;
+  border: 1px solid #4a148c; /* Slightly darker border */
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.main > li:hover {
+  background-color: #9c27b0; /* Even lighter purple on hover */
+}
+
+.main li a {
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.main li a i {
+  margin-right: 10px;
+}
+
+.active {
+  border-left: 3px solid #e1bee7; /* Light purple border */
+  background-color: #9c27b0; /* Slightly different purple for active state */
+}
+
+ul ul {
+  background-color: #7b1fa2; /* Slightly darker purple for sub-menus */
+  border-radius: 5px;
+  margin-top: 5px;
+  padding: 5px;
+}
+
+ul ul li {
+  padding: 5px 10px;
+}
+
+ul ul li:hover {
+  background-color: #8e24aa;
+  border-radius: 3px;
+}

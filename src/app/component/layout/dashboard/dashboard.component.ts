@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDrawer } from '@angular/material/sidenav';
 import { ShortcutInput } from 'ng-keyboard-shortcuts';
 
 @Component({
@@ -8,25 +9,47 @@ import { ShortcutInput } from 'ng-keyboard-shortcuts';
 })
 export class DashboardComponent implements OnInit {
   shortcuts: ShortcutInput[] = [];
+  isSidebarOpen: boolean = false;
+
+  @ViewChild('drawer') drawer!: MatDrawer;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.isSidebarOpen = this.prevSate;
+    this.applyDarkMode();
   }
-  togglePrevState() {
-    // var openF: boolean = this.prevSate;
-    // localStorageService.set('sidebar_drawer', !openF ? 'open' : 'close');
-}
-// get prevSate(): boolean {
-//         return localStorageService.get('sidebar_drawer') == 'open';
-//     }
-  toggleDarkMode() {
-    // var darkThm: boolean = localStorageService.get('th') == 'dark';
-    // document.body.classList.toggle('darkMode');
-    // localStorageService.set('th', !darkThm ? 'dark' : 'normal');
-}
-logout() {
-  // this.auth.logout();
-}
 
+  togglePrevState() {
+    this.isSidebarOpen = !this.isSidebarOpen;
+    localStorage.setItem('sidebar_drawer', this.isSidebarOpen ? 'open' : 'close');
+  }
+
+  get prevSate(): boolean {
+    return localStorage.getItem('sidebar_drawer') === 'open';
+  }
+
+  toggleDarkMode() {
+    const isDarkTheme = localStorage.getItem('th') === 'dark';
+    document.body.classList.toggle('darkMode', !isDarkTheme);
+    localStorage.setItem('th', !isDarkTheme ? 'dark' : 'normal');
+  }
+
+  applyDarkMode() {
+    const isDarkTheme = localStorage.getItem('th') === 'dark';
+    if (isDarkTheme) {
+      document.body.classList.add('darkMode');
+    } else {
+      document.body.classList.remove('darkMode');
+    }
+  }
+
+  onDrawerToggled(isOpened: boolean) {
+    this.isSidebarOpen = isOpened;
+  }
+
+  logout() {
+    // Implement logout logic here
+    // For example: this.auth.logout();
+  }
 }
