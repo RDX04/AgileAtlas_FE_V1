@@ -46,6 +46,7 @@ import { SideBarComponent } from './component/layout/side-bar/side-bar.component
 import { HomeComponent } from './component/layout/home/home.component';
 import { DashboardComponent } from './component/layout/dashboard/dashboard.component';
 import { LoginPageComponent } from './component/layout/login-page/login-page.component';
+import { RegisterComponent } from './component/layout/register/register.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { LoginPageComponent } from './component/layout/login-page/login-page.com
     SideBarComponent,
     HomeComponent,
     DashboardComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

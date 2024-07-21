@@ -1,12 +1,12 @@
 /* Center the form on the page */
-.login-form {
+.register-form {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh; /* Full viewport height */
     margin: 0;
   
-    .login-card {
+    .register-card {
       width: 360px;
       .mat-card-header {
         text-align: center;
